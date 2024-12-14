@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body{
+  padding:0;
+  margin:0;
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+}
+h2{
+	padding: 10px;
+	margin:30px;
+}
+b{
+	color: #006400
+}
+hr{
+	height:5px;
+	color: #006400;
+}
+nav{ 
+  padding:30px 30px;
+ 
+  box-sizing:border-box;
+  display: grid;
+  grid-template-columns: 40% 20% 40%;
+  background-color:white;
+}
+nav .left{
+  text-align:left;
+  size: 100px; 
+  color: black;
+   display: inline-block;
+}
+nav .center{
+  text-align:center;
+}
+nav .right{
+  text-align:right;
+}
+nav .right form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+nav .right form label {
+   color:#006400;
+   text: bold;
+}
+form .search-bar{
+	width: 100%;
+	max-width: 700px;
+	background: rgba(255,255,255,0.2);
+    display : flex;
+    border-radius: 60px;
+    padding:10px 20px;
+	align-items: right;
+  
+	
+} 
+
+nav .right form input[type="text"] {
+  width: 200px;
+  padding: 6px 10px;
+  border: 2px solid #006400 ;
+  border-radius: 30px;
+  font-size: 16px;
+  color: #006400;
+  background-color: transparent;
+  margin-right: 10px;
+  margin-top: 30px;
+}
+
+nav .right form button[type="submit"] {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  margin-top: 30px;
+}
+
+nav .right form button[type="submit"] img {
+  width: 20px;
+  height: 20px;
+}
+
+nav .left a {
+  display: inline-block;
+  font-size: 20px;
+  color: black;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  padding: 10px;
+  margin-top: 30px;
+}
+nav .center a{
+	text-decoration:none;
+  padding: 20px;
+	
+}
+nav .right form button {
+  background-color: #006400;
+  border: none;
+  border-radius: 5px;
+  padding: 6px;
+  margin-left: 10px;
+}
+
+nav .right form button img {
+  width: 20px;
+  height: 20px;
+}
+
+
+
+}
+.toptable {
+  padding: 2px;
+  width: 1450px;
+}
+
+.book-Image {
+  padding: 10px;
+  display: inline-block;
+  margin-right: 50px;
+  width: 27%;
+  text-align: center;
+   max-width: 256.5px;
+}
+
+
+.desciption {
+  text-align: center;
+}
+
+.features {
+  width: 390px;
+  padding: 15px;
+}
+
+.feature-image {
+  width: 200px;
+  padding: 10px;
+  float: left;
+  margin-right: 20px;
+}
+
+.hover:hover {
+  color: #006400;
+  padding-left: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 20px;
+  vertical-align: top;
+  border-right: 1px solid #ccc;
+}
+
+
+.article {
+  text-align: center;
+
+}
+
+.aricle img {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: center;
+   margin-bottom: 10px;
+}
+
+.article h2 {
+  font-size: 24px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.article p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-top: 0;
+}
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.desc{
+	padding: 15px;
+	text-align: center;
+}
+.books{
+	margin:5px;
+	float: left;
+	width:200px;
+}
+.books:nth-child(6n+1) {
+  clear: left;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+	
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: black;
+	padding: 70px 0;
+	
+}
+.footer-col{
+	width:25%;
+	padding: 0 15px;
+	
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #006400;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 600;
+	position: relative;
+	
+	
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	background-color: #006400;
+	height: 2px;
+	box-sizing: border-box;
+	
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 5px;
+	}
+.footer-col ul li a{
+	font-size:16px;
+	text-transform: capitalize;
+	color: #006400;
+	text-decoration: none;
+	font-weight: 300;
+	color: white;
+	display:block;
+	transition: all 0.3s ease;
+	
+}
+.footer-col ul li a:hover{
+	color: #006400;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin: 0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #006400;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #006400;
+}
+.social-links {
+    display: flex;
+    justify-content: center;
+}
+
+.social-links li {
+    margin: 0 10px;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+	.footer-col{
+		width: 50%;
+		margin-bottom: 30px;
+	}
+}
+@media(max-width: 574px){
+	.footer-col{
+		width: 100%;
+	}
+}

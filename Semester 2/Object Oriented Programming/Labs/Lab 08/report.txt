@@ -1,0 +1,51 @@
+		University of the Punjab
+		College of Information Technology
+		Result of session: spring 2023
+Degree: BIT
+
+Sr.No. Roll No.   Student Name          ITC  PF  DLD  TOTAL  %age  Grade
+====== ========== ===================== ===  ==  ===  =====  ====  =====
+1      BITF09M002 Khawer Hayat           183711 183711 183711
+2      BITF09M002 Khawer Hayat           183711 183711 183711
+3      BITF09M002 Khawer Hayat           183711 183711 183711
+4      BITF09M002 Khawer Hayat           183711 183711 183711
+5      BITF09M002 Khawer Hayat           183711 183711 183711
+6      BITF09M002 Khawer Hayat           183711 183711 183711
+7      BITF09M002 Khawer Hayat           183711 183711 183711
+8      BITF09M002 Khawer Hayat           183711 183711 183711
+9      BITF09M002 Khawer Hayat           183711 183711 183711
+10      BITF09M002 Khawer Hayat           183711 183711 183711
+11      BITF09M002 Khawer Hayat           183711 183711 183711
+12      BITF09M002 Khawer Hayat           183711 183711 183711
+13      BITF09M002 Khawer Hayat           183711 183711 183711
+14      BITF09M002 Khawer Hayat           183711 183711 183711
+15      BITF09M002 Khawer Hayat           183711 183711 183711
+16      BITF09M002 Khawer Hayat           183711 183711 183711
+17      BITF09M002 Khawer Hayat           183711 183711 183711
+18      BITF09M002 Khawer Hayat           183711 183711 183711
+19      BITF09M002 Khawer Hayat           183711 183711 183711
+20      BITF09M002 Khawer Hayat           183711 183711 183711
+21      BITF09M002 Khawer Hayat           183711 183711 183711
+22      BITF09M002 Khawer Hayat           183711 183711 183711
+23      BITF09M002 Khawer Hayat           183711 183711 183711
+24      BITF09M002 Khawer Hayat           183711 183711 183711
+25      BITF09M002 Khawer Hayat           183711 183711 183711
+26      BITF09M002 Khawer Hayat           183711 183711 183711
+27      BITF09M002 Khawer Hayat           183711 183711 183711
+
+Degree: BSEF
+
+Sr.No. Roll No.   Student Name          ITC  PF  DLD  TOTAL  %age  Grade
+====== ========== ===================== ===  ==  ===  =====  ====  =====
+1      BSEF09M001 Hammad Khan 183711 183711 183711
+2      BSEF09M001 Hammad Khan 183711 183711 183711
+3      BSEF09M001 Hammad Khan 183711 183711 183711
+4      BSEF09M001 Hammad Khan 183711 183711 183711
+5      BSEF09M001 Hammad Khan 183711 183711 183711
+6      BSEF09M001 Hammad Khan 183711 183711 183711
+7      BSEF09M001 Hammad Khan 183711 183711 183711
+8      BSEF09M001 Hammad Khan 183711 183711 183711
+9      BSEF09M001 Hammad Khan 183711 183711 183711
+10      BSEF09M001 Hammad Khan 183711 183711 183711
+11      BSEF09M001 Hammad Khan 183711 183711 183711
+12      BSEF09M001 Hammad Khan 183711 183711 183711
