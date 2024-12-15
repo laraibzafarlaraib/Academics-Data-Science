@@ -1,0 +1,94 @@
+01.
+select ename , deptno
+from emp 
+where deptno = (select deptno
+from emp
+where ename = 'MARTIN');
+
+02.
+select m.ename
+from emp e, emp m 
+where m.empno = e.mgr
+and m.job = 'MANAGER'
+and m.sal = (select MAX(sal) from emp 
+where job = 'MANAGER')
+
+03.
+select e.empno, e.first_name, e.last_name, e.salary, d.dname, d.city, d.state
+from emp e, dept d
+where e.deptno = d.deptno
+and e.sal >= 7000
+and e.sal in (select MAX(sal) from emp group by deptno)
+
+04.
+select d.*
+from dept d, emp e
+where e.deptno = d.deptno
+and e.job IS NOT NULL
+group by deptno
+having max(sal) > 7000
+
+05.
+select d.dname , AVG(e.sal) AS AVGSAL, count(e.empno) AS COUNT
+from emp e, dept d
+where e.deptno = d.deptno
+and e.comm IS NOT NULL
+group by dname;
+
+06.
+select e.*
+from emp e, salgrade s
+where e.sal BETWEEN hisal AND losal
+and (s.grade = 4 or s.grade = 5)
+and (e.job = 'ANALYST' or e.job = 'MANAGER');
+
+07.
+select *
+from emp
+where deptno = 20
+and job IN (select job 
+from emp 
+where deptno = 10)
+
+08.
+select *
+from emp
+where sal = (select MAX(sal)
+from emp e, dept d
+where e.deptno = d.deptno
+and d.dname = 'SALES');
+
+09.
+select d.deptno , d.dname, AVG(e.sal) AS avg
+from emp e, dept d
+where e.deptno = d.deptno
+and count(e.name like '%Y%') = 2 
+and e.ename like '%R%'
+group by d.deptno
+having AVG(e.sal) > 100000;
+
+10.
+select *
+from emp
+where sal in (select MIN(sal) 
+from emp 
+group by JOB)
+order by sal asc;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

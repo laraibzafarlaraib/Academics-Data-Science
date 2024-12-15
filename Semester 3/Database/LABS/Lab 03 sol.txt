@@ -1,0 +1,114 @@
+Question 1:
+Write a SQL Statement on EMP Table, which shows the names of employees, job and
+salary whose job is Salesman and the employee’s name has an E in it.
+
+SELECT ename, job, salary
+FROM emp
+WHERE job = 'SALESMAN'
+AND ename LIKE '%E%'
+
+
+Question 2: 
+Write a SQL statement on EMP table, which shows ename, sal, hiredate, Annual_Sal, job
+of all those employees who a manager or a salesman are and having ‘A’ at second or third place and
+salary between 1000 and 2500 and not hired in ‘FEB’ and ‘MAY’, sorted by annual salary in descending
+order.
+
+SELECT ename, sal, hiredate, (sal * 12) as 'Annual_Sal', job 
+FROM emp
+WHERE (JOB = 'SALESMAN' OR JOB = 'MANAGER')
+AND (ename LIKE '_A%' OR ename LIKE '__A%')
+AND sal BETWEEN 1000 and 2500
+AND (hiredate LIKE '%FEB%' OR hiredate LIKE '%MAY%')
+ORDER BY Annual_sal DESC
+
+
+Question 3: 
+Display the ename, job, hiredate, sal and deptno of all employees whose manager id is
+not 7839 and the commission must not be null. And the hiredate is between 21-Feb-81 and 17-Dec81.
+Sort the result by salary and then by commission in descending order.
+
+SELECT ename, job, hiredate, sal, deptno
+FROM emp 
+WHERE mgr NOT IN ('7839')
+AND comm IS NOT NULL
+AND (hiredate BETWEEN '21-Feb-81' and '17-Dec81')
+ORDER BY sal
+ORDER BY comm DESC
+
+
+Question 4: 
+Display employee names who have two ‘A’ in their names as “Name”, position of the
+second occurrence of ‘A’ in the employee names as “Position”, and salary as “Salary”.
+
+SELECT ename (SUBSTR(TRIM 'A' FROM ename),'A') AS 'POSITIONS', sal AS 'SALARY'
+FROM emp e
+WHERE ename LIKE '%A%A%';
+
+
+Question 5: 
+Display employee name with their first and last letter capitalized, and rest of letters
+lowercase for all the employees whose name start with A, M and B. Sort the results by employee
+name.
+
+SELECT CONCAT(CONCAT(UPPER(SUBSTR(ENAME,1,1))),CONCAT (LOWER(SUBSTR(ENAME,2,LENGHT(ENAME)-1))), UPPER(SUBSTR(ENAME,LENGTH(ENAME))))
+FROM emp e
+WHERE ename LIKE 'A%'
+AND ename LIKE 'M%'
+AND ename LIKE 'B%'
+ORDER BY ename;
+
+
+Question 6: 
+Create a query that will display the total salary of each department in ascending order.
+
+SELECT SUM(sal) AS 'TOTAL_SAL'
+FROM emp 
+GROUP BY deptno
+ORDER BY SUM(sal) ACS;
+
+
+Question 7: 
+Display ename as “Name”, department number as “Department”, and 15% incremented
+salary as“Incremented_Salary”, and salary of those employee whose job is clerk or salesman and
+whose salary is not equal to $1250, $1300, or $1400 and whose name contains an “A”. 
+
+SELECT ename AS 'NAME', deptno AS 'DEPARTMENT' ,(sal+sal*0.15) AS 'INCREMENTED_SALARY', sal
+FROM emp 
+WHERE (job = 'CLERK' OR job = 'SALESMAN')
+AND sal NOT IN (1250,1300,1400)
+AND ename LIKE '%A%';
+
+
+
+Question 8: 
+Write an SQL statement, which retrieves the names of employees along with their
+department numbers and the names of their colleagues who work in the same department but have
+different names.
+
+SELECT e.ename, deptno, c.ename
+FROM emp e,emp c
+WHERE e.deptno = c.deptno
+AND e.ename <> c.ename;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,242 @@
+1.
+SELECT ENAME , SAL
+FROM EMP
+WHERE SAL > (SELECT AVG(SAL)
+FROM EMP)
+
+2.
+select d.dname , count(e.empno)
+from emp e , dept d
+where e.deptno = d.deptno
+group by d.dname
+
+3.
+SELECT ENAME, SAL, deptno
+FROM EMP
+WHERE ( SAL) IN (SELECT MAX(SAL)
+                        FROM EMP
+                        GROUP BY deptno)
+
+4.
+select d.dname , AVG(e.sal)
+from emp e , dept d
+where e.deptno = d.deptno
+group by d.dname
+
+5.
+select e.ename
+from emp e , emp m 
+where m.empno = e.mgr
+and m.sal = e.sal
+
+6.
+select d.dname , MAX(e.sal)
+from emp e , dept d
+where e.deptno = d.deptno
+group by d.dname
+
+7.
+SELECT ename, hiredate
+FROM emp
+WHERE hiredate > (SELECT AVG(hiredate) FROM emp);
+
+	ORA-00932: inconsistent datatypes: expected NUMBER got DATE
+
+SELECT ename, hiredate
+FROM emp
+WHERE hiredate > (SELECT TO_DATE(AVG(TO_CHAR(hiredate, 'YYYY-MM-DD')), 'YYYY-MM-DD') FROM emp);
+
+ invalid number
+
+8.
+select d.dname , SUM(e.sal)
+from emp e , dept d
+where e.deptno = d.deptno
+group by d.dname
+
+9.
+SELECT ENAME , SAL
+FROM EMP
+WHERE SAL in (SELECT MIN(SAL)
+FROM EMP
+group by deptno)
+
+10.
+select d.dname , min(e.sal)
+from emp e , dept d
+where e.deptno = d.deptno
+group by d.dname
+
+11.
+SELECT e.ename, e.sal
+FROM emp e
+WHERE e.sal > (SELECT AVG(e2.sal)
+               FROM emp e2
+               WHERE e2.deptno = e.deptno);
+12.
+select d.dname , count(e.empno)
+from emp e , dept d
+where e.deptno = d.deptno
+and e.comm is not null
+group by d.dname
+
+13.
+select ename, sal
+from emp
+where sal in (select AVG(sal) from emp group by deptno)
+
+14.
+select d.dname, AVG(e.comm)
+from dept d , emp e
+where d.deptno = e.deptno
+group by d.dname
+
+15.
+SELECT ename, sal
+FROM emp
+WHERE sal < (SELECT AVG(sal) FROM emp e2 WHERE e2.deptno = emp.deptno)
+AND sal > (SELECT AVG(sal) FROM emp)
+
+16.
+select d.dname, count(e.empno)
+from emp e , dept d
+where d.deptno = e.deptno
+group by d.dname
+
+17.
+SELECT ename, sal
+FROM emp e1
+WHERE sal < (SELECT MAX(sal) FROM emp e2 WHERE e1.deptno = e2.deptno)
+
+18.
+SELECT D.DNAME
+FROM DEPT D, EMP E
+WHERE D.DEPTNO = E.DEPTNO
+AND EXTRACT(YEAR FROM e.hiredate) = 2024
+GROUP BY d.dname;
+
+19.
+SELECT ename, sal
+FROM emp
+WHERE sal < (SELECT AVG(sal) FROM emp)
+AND comm > 0;
+
+20.
+SELECT d.dname, EXTRACT(YEAR FROM e.hiredate) AS hire_year, COUNT(e.empno) AS total_employees
+FROM emp e, dept d 
+where e.deptno = d.deptno
+GROUP BY d.dname, EXTRACT(YEAR FROM e.hiredate)
+ORDER BY d.dname, hire_year;
+
+21.
+SELECT ename, sal
+FROM emp e1
+WHERE sal > (SELECT MAX(sal) FROM emp e2 WHERE e1.deptno = e2.deptno)
+AND sal < (SELECT AVG(sal) FROM emp);
+
+22.
+SELECT d.dname, COUNT(e.empno) AS total_employees
+FROM emp e
+JOIN dept d ON e.deptno = d.deptno
+WHERE e.sal BETWEEN 2000 AND 3000
+GROUP BY d.dname;
+
+23.
+SELECT ename, sal
+FROM emp
+WHERE sal < (SELECT AVG(sal) FROM emp e2 WHERE e2.deptno = emp.deptno)
+and job = 'MANAGER'
+
+24.
+SELECT d.dname, EXTRACT(MONTH FROM e.hiredate) AS hire_month, COUNT(e.empno) AS total_employees
+FROM emp e, dept d 
+where e.deptno = d.deptno
+GROUP BY d.dname, EXTRACT(MONTH FROM e.hiredate)
+ORDER BY hire_month;
+
+25.
+SELECT ename, sal
+FROM emp
+WHERE sal > (SELECT AVG(sal) FROM emp)
+AND comm < (SELECT AVG(comm) FROM emp);
+
+26.
+SELECT d.dname, COUNT(e.empno) AS total_clerks
+FROM emp e, dept d 
+where e.deptno = d.deptno
+and e.job LIKE '%CLERK%'
+GROUP BY d.dname;
+
+27.
+SELECT ename, sal
+FROM emp e1
+WHERE sal < (SELECT MAX(sal) FROM emp e2 WHERE e1.deptno = e2.deptno)
+AND comm > (SELECT AVG(comm) FROM emp);
+
+28.
+SELECT d.dname, COUNT(e.empno) AS total_emp_with_comm
+FROM emp e
+JOIN dept d ON e.deptno = d.deptno
+WHERE e.comm IS NOT NULL
+GROUP BY d.dname;
+
+29.
+SELECT ename, sal
+FROM emp e1
+WHERE sal > (SELECT MAX(sal) FROM emp e2 WHERE e1.deptno = e2.deptno)
+AND comm > 0;
+
+30.
+SELECT d.dname, COUNT(e.empno) AS total
+FROM emp e
+JOIN dept d ON e.deptno = d.deptno
+WHERE e.sal > (SELECT AVG(sal) FROM emp)
+GROUP BY d.dname;
+
+31.
+SELECT ename, sal
+FROM emp
+WHERE sal < (SELECT AVG(sal) FROM emp)
+AND hiredate < (SELECT AVG(hiredate) FROM emp);
+
+32.
+SELECT d.dname, COUNT(e.empno) AS total_employees
+FROM emp e
+JOIN dept d ON e.deptno = d.deptno
+WHERE e.sal > (SELECT AVG(sal) FROM emp)
+GROUP BY d.dname;
+
+33.
+SELECT e1.ename, e1.sal
+FROM emp e1
+JOIN (
+    SELECT deptno, MAX(sal) AS max_salary
+    FROM emp
+    GROUP BY deptno
+) e_max ON e1.deptno = e_max.deptno
+JOIN (
+    SELECT deptno, AVG(comm) AS avg_comm
+    FROM emp
+    GROUP BY deptno
+) e_avg_comm ON e1.deptno = e_avg_comm.deptno
+WHERE e1.sal < e_max.max_salary
+AND e1.comm > e_avg_comm.avg_comm;
+ oyeeee
+
+34.
+SELECT d.dname, COUNT(e.empno) AS total_employees
+FROM emp e
+JOIN dept d ON e.deptno = d.deptno
+WHERE e.sal < (SELECT AVG(sal) FROM emp e2 WHERE e2.deptno = e.deptno)
+  AND e.comm > (SELECT AVG(comm) FROM emp e3 WHERE e3.deptno = e.deptno)
+GROUP BY d.dname;
+
+35.
+SELECT ename, sal
+FROM emp
+WHERE sal > (SELECT AVG(sal) FROM emp e2 WHERE emp.deptno = e2.deptno)
+  AND sal < (SELECT AVG(sal) FROM emp);
+
+phew
+
+

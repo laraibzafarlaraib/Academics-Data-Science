@@ -1,0 +1,88 @@
+SELECT d.dname, e.ename, d.loc
+FROM emp e, dept d
+WHERE e.deptno = d.deptno
+AND e.comm IS NOT NULL;
+
+2.
+SELECT MOD(sal, 300) AS REMAINDERSALARY
+FROM emp
+WHERE job = 'MANAGER';
+3.
+SELECT e.hiredate, e.com, d.deptname, d.loc, e.sal, s.grade
+FROM emp e , salgrade s, dept d
+WHERE e.deptno = d.deptno
+AND s.sal BETWEEN hisal AND lowsal
+
+4.
+SELECT ROUND(MAX(sal), 2) AS MAXSAL, ROUND(MIN(sal), 2) AS LOWSAL, 
+ROUND(SUM(sal), 2) AS SUMSAL, ROUND(AVG(sal), 2) AS AVGSAL 
+FROM emp
+
+
+5.
+SELECT SUM(sal) AS SUMSAL , AVG(sal) AS AVGSAL
+FROM emp
+WHERE deptno = '10'
+
+6.
+SELECT d.deptno, d.deptname, d.loc
+FROM emp e, dept d
+WHERE e.deptno = d.deptno
+AND AVG(e.sal) > (SELECT AVG(sal)
+	          FROM emp
+		  GROUP BY e.deptno)
+
+SELECT d.deptno, d.dname, d.loc
+FROM emp e, dept d
+WHERE e.deptno = d.deptno
+AND (e.sal) > ALL(SELECT AVG(sal)
+	          FROM emp e ,dept d
+		  WHERE e.deptno = d.deptno)
+
+7.
+SELECT m.mgr AS MANAGERNAME , e.ename AS DIRECTREPORT
+FROM emp m, emp e
+WHERE m.empno = e.empno;
+
+
+8.
+SELECT ename, job, sal
+FROM emp
+WHERE sal = (
+SELECT max(sal)
+FROM emp e, dept d
+WHERE e.deptno = d.deptno);
+
+9.
+SELECT ename, job, sal
+FROM emp e, emp m
+WHERE e.mgr = m.empno
+AND e.sal > m.sal
+
+10.
+SELECT e.ename, e.hiredate, m.ename
+FROM emp e, emp m
+WHERE e.mgr = e.empno
+AND (SYSDATE - e.hiredate) > (SYSDATE - m.hiredate)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
